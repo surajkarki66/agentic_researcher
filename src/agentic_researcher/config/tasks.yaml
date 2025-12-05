@@ -26,10 +26,10 @@ research_task:
 
 writing_task:
   description: >
-    Using the research findings provided, write a comprehensive yet concise 1-page
+    Using the research findings provided in the context, write a comprehensive yet concise 1-page
     scientific document on: {topic}
     
-    Structure your document as follows:
+    Structure your document exactly as follows:
     1. **Title**: Clear, descriptive title
     2. **Introduction** (2-3 sentences): Context and significance of the topic
     3. **Main Content** (3-4 paragraphs): Key scientific concepts, recent findings,
@@ -43,6 +43,7 @@ writing_task:
     - Maintain logical flow between sections
     - Make it engaging yet academically rigorous
     - Ensure every claim is supported by the research provided
+    - Write the COMPLETE document in your response
   expected_output: >
     A polished 1-page scientific document (500-600 words) formatted in markdown:
     - Clear title and section headings
@@ -51,12 +52,17 @@ writing_task:
     - Proper scientific terminology used correctly
     - Engaging introduction and impactful conclusion
     - Approximately 1 page in length when printed
-    Format: Clean markdown without code blocks
+    Format: Clean markdown without code blocks (```)
+    IMPORTANT: Provide the COMPLETE document text in your response
   agent: scientific_writer
+  context:
+    - research_task
 
 editing_task:
   description: >
-    Review and refine the scientific document on: {topic}
+    Review and refine the scientific document on: {topic} that was written in the previous task.
+    
+    YOU MUST provide the complete edited document. Do not ask for tools or provide meta-commentary.
     
     Your editing checklist:
     1. **Accuracy**: Verify all scientific claims are correct and properly supported
@@ -70,6 +76,8 @@ editing_task:
     
     Make necessary revisions to improve quality while maintaining the writer's voice.
     If the document exceeds 1 page, condense without losing key information.
+    
+    Provide the COMPLETE final document in your response.
   expected_output: >
     The final, publication-ready 1-page scientific document:
     - All factual errors corrected
@@ -79,6 +87,9 @@ editing_task:
     - Strong opening and closing
     - Scientifically accurate and engaging
     - Ready to be saved and shared
-    Format: Final markdown document without code blocks, optimized for readability
+    Format: Final markdown document without code blocks (```), optimized for readability
+    IMPORTANT: Provide the COMPLETE edited document text in your response
   agent: editor
+  context:
+    - writing_task
   output_file: 'report.md'

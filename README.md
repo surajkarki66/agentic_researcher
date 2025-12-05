@@ -36,6 +36,22 @@ Next, navigate to your project directory and install the dependencies:
 ```bash
 crewai install
 ```
+
+### Environment Setup
+
+**IMPORTANT: Configure your API keys in the `.env` file**
+
+1. Copy `.env.example` to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Add your API keys to `.env`:
+   - `OPENAI_API_KEY` - Required for AI agents (get from [OpenAI](https://platform.openai.com/api-keys))
+   - `SERPER_API_KEY` - Required for web search functionality (get free key at [Serper.dev](https://serper.dev/))
+
+Without these API keys, the research assistant will not function properly.
+
 ### Customizing
 
 **Add your `OPENAI_API_KEY` into the `.env` file**
@@ -86,24 +102,56 @@ This example, unmodified, will run the create a `report.md` file with the output
 
 ## Understanding Your Crew
 
-The Scientific Research Assistant is composed of three specialized AI agents:
+The Scientific Research Assistant is composed of three specialized AI agents with custom-built tools:
 
 ### 1. Scientific Researcher
 - **Role**: PhD-level research specialist
 - **Capabilities**: Gathers comprehensive scientific information from credible sources
+- **Custom Tools**:
+  - 🔬 **Scientific Literature Search**: Searches arXiv and academic databases for peer-reviewed papers
+  - 📊 **Research Summarizer**: Organizes findings into structured categories
+  - 🌐 **Web Search & Scraping**: General web search and content extraction
 - **Output**: 8-12 key findings with supporting evidence and source attributions
 
 ### 2. Scientific Writer
 - **Role**: Accomplished science writer
 - **Capabilities**: Transforms research into clear, engaging 1-page documents
+- **Custom Tools**:
+  - 📊 **Research Summarizer**: Helps structure and organize content effectively
 - **Output**: Well-structured 500-600 word document with proper formatting
 
 ### 3. Editor
 - **Role**: Scientific editor and quality assurance specialist
 - **Capabilities**: Reviews for accuracy, clarity, structure, and length
+- **Custom Tools**:
+  - ✏️ **Citation Formatter**: Checks for proper attribution and citation formatting
 - **Output**: Publication-ready final document
 
 These agents collaborate sequentially as defined in `config/tasks.yaml`, with each agent building upon the work of the previous one to create a polished scientific summary.
+
+## Custom Tools
+
+This project includes three specialized custom tools built specifically for scientific research:
+
+### Scientific Literature Search Tool
+- Searches arXiv for peer-reviewed scientific papers
+- Returns titles, authors, abstracts, and publication links
+- Focuses on credible academic sources
+- Perfect for finding recent research and breakthrough studies
+
+### Research Summarizer Tool
+- Analyzes and structures research findings
+- Organizes information into clear categories
+- Provides writing recommendations
+- Ensures comprehensive coverage of key points
+
+### Citation Formatter Tool
+- Analyzes text for proper scientific attribution
+- Suggests citation formats (in-text, parenthetical, data citations)
+- Identifies claims that need citations
+- Ensures scientific rigor and credibility
+
+You can find these tools in `src/agentic_researcher/tools/scientific_tools.py`.
 
 ## Customizing
 
