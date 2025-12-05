@@ -17,13 +17,29 @@ def run():
     """
     Run the crew.
     """
+    # Get topic from user or use default
+    import sys
+    if len(sys.argv) > 1:
+        topic = ' '.join(sys.argv[1:])
+    else:
+        print("\n=== Scientific Research Assistant ===")
+        print("This assistant will help you write a 1-page scientific document.\n")
+        topic = input("Enter a scientific topic (e.g., 'CRISPR gene editing', 'quantum entanglement', 'neuroplasticity'): ").strip()
+        if not topic:
+            topic = 'CRISPR gene editing technology'
+            print(f"Using default topic: {topic}\n")
+    
     inputs = {
-        'topic': 'AI LLMs',
+        'topic': topic,
         'current_year': str(datetime.now().year)
     }
 
     try:
-        AgenticResearcher().crew().kickoff(inputs=inputs)
+        result = AgenticResearcher().crew().kickoff(inputs=inputs)
+        print("\n" + "="*60)
+        print("✓ Research complete! Your 1-page scientific document has been saved to 'report.md'")
+        print("="*60 + "\n")
+        return result
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -33,7 +49,7 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs",
+        "topic": "quantum computing applications in drug discovery",
         'current_year': str(datetime.now().year)
     }
     try:
@@ -57,7 +73,7 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs",
+        "topic": "neural mechanisms of memory consolidation",
         "current_year": str(datetime.now().year)
     }
 

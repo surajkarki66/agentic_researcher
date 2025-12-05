@@ -2,6 +2,8 @@ from crewai.tools import BaseTool
 from typing import Type
 from pydantic import BaseModel, Field
 
+# If you would like to add tools to your agents, you can learn more about it here:
+# https://docs.crewai.com/concepts/agents#agent-tools
 
 class MyCustomToolInput(BaseModel):
     """Input schema for MyCustomTool."""
