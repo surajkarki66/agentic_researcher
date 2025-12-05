@@ -38,6 +38,10 @@ research_task:
     - Open problems or controversies
     - Future research directions
     
+    ## Sources Used
+    - List all papers, articles, and sources consulted
+    - Include authors, titles, publication dates, and URLs where available
+    
     Format: Well-organized prose with clear section headers
   agent: scientific_researcher
 
@@ -64,23 +68,31 @@ writing_task:
     ## Conclusion
     Write 2-3 sentences summarizing key takeaways and future outlook.
     
+    ## References
+    List all sources cited in the document:
+    - Include papers, articles, and sources from the research
+    - Format: Author(s). (Year). Title. Source/URL
+    - Number each reference [1], [2], etc.
+    
     Writing guidelines:
-    - Total length: 500-600 words (1 page)
+    - Total length: 500-650 words (1 page including references)
     - Use clear, precise scientific language
     - Include specific examples from the research
     - Maintain logical flow
     - Make it engaging yet rigorous
     - Every claim must be supported by research
+    - Add inline citations like [1] or [2] in the text
     
     Write the COMPLETE document NOW in your response.
   expected_output: >
-    A complete 1-page scientific document (500-600 words) in markdown format with:
+    A complete 1-page scientific document (500-650 words) in markdown format with:
     - Title starting with #
     - Section headings with ##
     - Well-structured paragraphs
-    - Evidence-based content
+    - Evidence-based content with inline citations [1], [2]
     - Proper scientific terminology
     - Engaging introduction and conclusion
+    - Complete References section at the end
     - NO code blocks (no ```)
     
     CRITICAL: Output the ENTIRE document text directly in your final answer.
@@ -98,11 +110,13 @@ editing_task:
     1. **Accuracy**: Verify all scientific claims are correct and properly supported
     2. **Clarity**: Ensure language is clear and accessible without oversimplification
     3. **Structure**: Check logical flow and proper organization
-    4. **Length**: Ensure document fits on 1 page (500-600 words)
+    4. **Length**: Ensure document fits on 1 page (500-650 words including references)
     5. **Grammar**: Fix any grammatical or stylistic issues
     6. **Consistency**: Check for consistent terminology and formatting
     7. **Impact**: Ensure the introduction hooks the reader and conclusion is memorable
     8. **Completeness**: Verify all essential information is included
+    9. **Citations**: Ensure all claims have inline citations [1], [2] pointing to References
+    10. **References**: Verify References section is complete and properly formatted
     
     Make necessary revisions to improve quality while maintaining the writer's voice.
     If the document exceeds 1 page, condense without losing key information.
@@ -112,9 +126,11 @@ editing_task:
     The final, publication-ready 1-page scientific document:
     - All factual errors corrected
     - Clear, polished prose
-    - Optimal length (500-600 words, fits on 1 page)
+    - Optimal length (500-650 words, fits on 1 page)
     - Proper markdown formatting
     - Strong opening and closing
+    - Inline citations [1], [2] throughout the text
+    - Complete References section at the end
     - Scientifically accurate and engaging
     - Ready to be saved and shared
     Format: Final markdown document without code blocks (```), optimized for readability
