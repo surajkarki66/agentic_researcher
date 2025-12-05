@@ -16,7 +16,8 @@ research_task:
     6. Practical applications or implications
     7. Current challenges or controversies
     
-    DO NOT use tools that you are unsure about. Stick to Scientific Literature Search and web search.
+    Stick to Scientific Literature Search and web search.
+
     Provide a clear, comprehensive summary in plain text format.
   expected_output: >
     A comprehensive research summary (400-500 words) containing:
@@ -44,8 +45,6 @@ writing_task:
   description: >
     Using the research findings from the previous task, write a comprehensive yet concise 1-page
     scientific document on: {topic}
-    
-    DO NOT use any tools. Simply write the document based on the research provided.
     
     Structure your document exactly as follows:
     
@@ -93,7 +92,7 @@ editing_task:
   description: >
     Review and refine the scientific document on: {topic} that was written in the previous task.
     
-    YOU MUST provide the complete edited document. Do not ask for tools or provide meta-commentary.
+    YOU MUST provide the complete edited document.
     
     Your editing checklist:
     1. **Accuracy**: Verify all scientific claims are correct and properly supported
