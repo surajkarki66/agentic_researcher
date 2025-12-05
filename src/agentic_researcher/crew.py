@@ -22,8 +22,7 @@ class AgenticResearcher():
             tools=[
                 SerperDevTool(), 
                 ScrapeWebsiteTool(),
-                ScientificSearchTool(),
-                ResearchSummarizerTool()
+                ScientificSearchTool()
             ],
             verbose=True
         )
@@ -32,7 +31,6 @@ class AgenticResearcher():
     def scientific_writer(self) -> Agent:
         return Agent(
             config=self.agents_config['scientific_writer'], # type: ignore[index]
-            tools=[ResearchSummarizerTool()],
             verbose=True
         )
 
@@ -40,7 +38,6 @@ class AgenticResearcher():
     def editor(self) -> Agent:
         return Agent(
             config=self.agents_config['editor'], # type: ignore[index]
-            tools=[CitationFormatterTool()],
             verbose=True
         )
 

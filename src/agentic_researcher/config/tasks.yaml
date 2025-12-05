@@ -4,6 +4,9 @@ research_task:
   description: >
     Conduct comprehensive scientific research on: {topic}
     
+    Use the Scientific Literature Search tool to find academic papers and credible sources.
+    Then compile your findings into a structured summary.
+    
     Your research should include:
     1. Current state of knowledge and recent developments (as of {current_year})
     2. Key scientific principles and mechanisms
@@ -13,47 +16,75 @@ research_task:
     6. Practical applications or implications
     7. Current challenges or controversies
     
-    Focus on credible, peer-reviewed sources and authoritative publications.
-    Prioritize the most significant and recent information.
+    DO NOT use tools that you are unsure about. Stick to Scientific Literature Search and web search.
+    Provide a clear, comprehensive summary in plain text format.
   expected_output: >
-    A structured research summary containing:
-    - 8-12 key findings with supporting evidence
-    - Credible sources for each major point
-    - Clear categorization of information (background, current research, applications, future directions)
-    - Relevant data, statistics, or concrete examples
-    Format: Organized bullet points with source attributions
+    A comprehensive research summary (400-500 words) containing:
+    
+    ## Background
+    - Definition and core concepts of {topic}
+    - Historical context and importance
+    
+    ## Key Findings
+    - 8-12 specific discoveries or insights with evidence
+    - Citations to papers, studies, or sources where applicable
+    
+    ## Applications
+    - Real-world uses and practical implications
+    - Industries or fields where this is applied
+    
+    ## Current Challenges
+    - Open problems or controversies
+    - Future research directions
+    
+    Format: Well-organized prose with clear section headers
   agent: scientific_researcher
 
 writing_task:
   description: >
-    Using the research findings provided in the context, write a comprehensive yet concise 1-page
+    Using the research findings from the previous task, write a comprehensive yet concise 1-page
     scientific document on: {topic}
     
+    DO NOT use any tools. Simply write the document based on the research provided.
+    
     Structure your document exactly as follows:
-    1. **Title**: Clear, descriptive title
-    2. **Introduction** (2-3 sentences): Context and significance of the topic
-    3. **Main Content** (3-4 paragraphs): Key scientific concepts, recent findings,
-       mechanisms, applications, and implications. Use evidence from the research.
-    4. **Conclusion** (2-3 sentences): Summary of key takeaways and future outlook
+    
+    # [Clear, Descriptive Title]
+    
+    ## Introduction
+    Write 2-3 sentences explaining the context and significance of {topic}.
+    
+    ## Main Content
+    Write 3-4 well-structured paragraphs covering:
+    - Key scientific concepts and principles
+    - Recent findings and breakthroughs
+    - Mechanisms and how it works
+    - Applications and real-world implications
+    - Use specific examples and data from the research
+    
+    ## Conclusion
+    Write 2-3 sentences summarizing key takeaways and future outlook.
     
     Writing guidelines:
-    - Keep the total length to approximately 500-600 words (1 page)
+    - Total length: 500-600 words (1 page)
     - Use clear, precise scientific language
-    - Include specific examples, data, or studies where relevant
-    - Maintain logical flow between sections
-    - Make it engaging yet academically rigorous
-    - Ensure every claim is supported by the research provided
-    - Write the COMPLETE document in your response
+    - Include specific examples from the research
+    - Maintain logical flow
+    - Make it engaging yet rigorous
+    - Every claim must be supported by research
+    
+    Write the COMPLETE document NOW in your response.
   expected_output: >
-    A polished 1-page scientific document (500-600 words) formatted in markdown:
-    - Clear title and section headings
-    - Well-structured paragraphs with topic sentences
-    - Evidence-based content with inline references where appropriate
-    - Proper scientific terminology used correctly
-    - Engaging introduction and impactful conclusion
-    - Approximately 1 page in length when printed
-    Format: Clean markdown without code blocks (```)
-    IMPORTANT: Provide the COMPLETE document text in your response
+    A complete 1-page scientific document (500-600 words) in markdown format with:
+    - Title starting with #
+    - Section headings with ##
+    - Well-structured paragraphs
+    - Evidence-based content
+    - Proper scientific terminology
+    - Engaging introduction and conclusion
+    - NO code blocks (no ```)
+    
+    CRITICAL: Output the ENTIRE document text directly in your final answer.
   agent: scientific_writer
   context:
     - research_task

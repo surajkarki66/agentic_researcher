@@ -102,56 +102,52 @@ This example, unmodified, will run the create a `report.md` file with the output
 
 ## Understanding Your Crew
 
-The Scientific Research Assistant is composed of three specialized AI agents with custom-built tools:
+The Scientific Research Assistant is composed of three specialized AI agents:
 
 ### 1. Scientific Researcher
 - **Role**: PhD-level research specialist
 - **Capabilities**: Gathers comprehensive scientific information from credible sources
-- **Custom Tools**:
-  - 🔬 **Scientific Literature Search**: Searches arXiv and academic databases for peer-reviewed papers
-  - 📊 **Research Summarizer**: Organizes findings into structured categories
-  - 🌐 **Web Search & Scraping**: General web search and content extraction
-- **Output**: 8-12 key findings with supporting evidence and source attributions
+- **Tools**:
+  - 🔬 **Scientific Literature Search** (Custom): Searches arXiv for peer-reviewed papers
+  - 🌐 **Web Search**: General web search via SerperDevTool
+  - 📄 **Web Scraping**: Content extraction via ScrapeWebsiteTool
+- **Output**: Comprehensive research summary with background, findings, applications, and challenges
 
 ### 2. Scientific Writer
 - **Role**: Accomplished science writer
 - **Capabilities**: Transforms research into clear, engaging 1-page documents
-- **Custom Tools**:
-  - 📊 **Research Summarizer**: Helps structure and organize content effectively
 - **Output**: Well-structured 500-600 word document with proper formatting
 
 ### 3. Editor
 - **Role**: Scientific editor and quality assurance specialist
 - **Capabilities**: Reviews for accuracy, clarity, structure, and length
-- **Custom Tools**:
-  - ✏️ **Citation Formatter**: Checks for proper attribution and citation formatting
 - **Output**: Publication-ready final document
 
 These agents collaborate sequentially as defined in `config/tasks.yaml`, with each agent building upon the work of the previous one to create a polished scientific summary.
 
 ## Custom Tools
 
-This project includes three specialized custom tools built specifically for scientific research:
+This project includes a specialized custom tool built for scientific research:
 
-### Scientific Literature Search Tool
-- Searches arXiv for peer-reviewed scientific papers
-- Returns titles, authors, abstracts, and publication links
-- Focuses on credible academic sources
-- Perfect for finding recent research and breakthrough studies
+### Scientific Literature Search Tool 🔬
+- **Purpose**: Searches arXiv for peer-reviewed scientific papers
+- **Used by**: Scientific Researcher agent
+- **Features**:
+  - Searches physics, mathematics, computer science, biology, and more
+  - Returns titles, authors, abstracts, and publication links
+  - Focuses on credible academic sources
+  - Perfect for finding recent research and breakthrough studies
+- **API**: Uses free arXiv API (no key required)
 
-### Research Summarizer Tool
-- Analyzes and structures research findings
-- Organizes information into clear categories
-- Provides writing recommendations
-- Ensures comprehensive coverage of key points
+The tool is located in `src/agentic_researcher/tools/scientific_tools.py` and can be extended to include additional academic databases like PubMed or Semantic Scholar.
 
-### Citation Formatter Tool
-- Analyzes text for proper scientific attribution
-- Suggests citation formats (in-text, parenthetical, data citations)
-- Identifies claims that need citations
-- Ensures scientific rigor and credibility
+### Why This Approach?
 
-You can find these tools in `src/agentic_researcher/tools/scientific_tools.py`.
+Instead of using complex multi-tool workflows that can cause validation errors, we've focused on:
+- ✅ **One reliable custom tool** for academic search
+- ✅ **Standard CrewAI tools** for web search and scraping
+- ✅ **Clear task descriptions** that guide agents without tool dependencies
+- ✅ **Simple, robust workflow** that produces consistent results
 
 ## Customizing
 
