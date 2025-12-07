@@ -47,6 +47,7 @@ def run():
 def train():
     """
     Train the crew for a given number of iterations.
+    Runs the crew multiple times with different inputs to optimize agent behavior and task execution
     """
     inputs = {
         "topic": "quantum computing applications in drug discovery",
@@ -71,6 +72,7 @@ def replay():
 def test():
     """
     Test the crew execution and returns the results.
+    Tests the crew execution and evaluates performance
     """
     inputs = {
         "topic": "neural mechanisms of memory consolidation",
