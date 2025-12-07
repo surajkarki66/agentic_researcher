@@ -1,4 +1,4 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task, before_kickoff, after_kickoff
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai_tools import SerperDevTool, ScrapeWebsiteTool
@@ -76,6 +76,14 @@ class AgenticResearcher():
     @crew
     def crew(self) -> Crew:
         """Creates the Agentic Researcher crew"""
+        
+        # Configure Ollama embeddings for knowledge sources
+        embedder_config = {
+            "provider": "ollama",
+            "config": {
+                "model": "nomic-embed-text"
+            }
+        }
 
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
@@ -87,5 +95,6 @@ class AgenticResearcher():
                     file_path="knowledge/citation_styles.txt",
                     metadata={"type": "citation_guidelines", "description": "Citation formatting and referencing standards"}
                 )
-            ]
+            ],
+            embedder=embedder_config
         )
