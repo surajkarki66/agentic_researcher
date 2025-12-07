@@ -1,12 +1,10 @@
 from crewai import Agent, Crew, Process, Task
-from crewai.project import CrewBase, agent, crew, task
+from crewai.project import CrewBase, agent, crew, task, before_kickoff, after_kickoff
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai_tools import SerperDevTool, ScrapeWebsiteTool
 from .tools.scientific_tools import ScientificSearchTool
 from typing import List
-# If you want to run a snippet of code before or after the crew starts,
-# you can use the @before_kickoff and @after_kickoff decorators
-# https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
+
 
 @CrewBase
 class AgenticResearcher():
@@ -15,8 +13,17 @@ class AgenticResearcher():
     agents: List[BaseAgent]
     tasks: List[Task]
     
+    @before_kickoff
+    def before_test(self):
+        print("Before Kickoff!!!!!")
+
+    @after_kickoff
+    def process_output(self):
+        print("After Kickoff!!!!")
+    
     @agent
     def scientific_researcher(self) -> Agent:
+        """Scientific Researcher: Gathers research with tools"""
         return Agent(
             config=self.agents_config['scientific_researcher'], # type: ignore[index]
             tools=[
@@ -29,6 +36,7 @@ class AgenticResearcher():
 
     @agent
     def scientific_writer(self) -> Agent:
+        """Scientific Writer: Transforms research into documents"""
         return Agent(
             config=self.agents_config['scientific_writer'], # type: ignore[index]
             verbose=True
@@ -36,6 +44,7 @@ class AgenticResearcher():
 
     @agent
     def editor(self) -> Agent:
+        """Editor: Quality assurance and final polishing"""
         return Agent(
             config=self.agents_config['editor'], # type: ignore[index]
             verbose=True
@@ -66,13 +75,16 @@ class AgenticResearcher():
     @crew
     def crew(self) -> Crew:
         """Creates the Agentic Researcher crew"""
-        # To learn how to add knowledge sources to your crew, check out the documentation:
-        # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
-            process=Process.sequential,
+            process=Process.sequential,  # Research → Write → Edit, but Process.hierarchical: Complex Multi-Agent Collaboration, Manager agents coordinating worker agents, Dynamic task assignment based on complexity, Agents helping each other during execution
             verbose=True,
-            # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+            knowledge_sources=[
+                {
+                    "file_path": "knowledge/citation_styles.txt",
+                    "metadata": {"type": "citation_guidelines", "description": "Citation formatting and referencing standards"}
+                }
+            ]
         )

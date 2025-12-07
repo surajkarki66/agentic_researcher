@@ -4,13 +4,15 @@ from pydantic import BaseModel, Field
 
 import requests
 
+# Input Schema
 class ScientificSearchInput(BaseModel):
     """Input schema for ScientificSearchTool."""
     query: str = Field(..., description="Scientific topic or keywords to search for in academic sources")
     max_results: int = Field(default=5, description="Maximum number of results to return (1-10)")
 
+# Tool Registration
 class ScientificSearchTool(BaseTool):
-    name: str = "Scientific Literature Search"
+    name: str = "Scientific Literature Search" # How agent refers to it
     description: str = (
         "Search for scientific papers, research articles, and academic publications. "
         "This tool searches multiple sources including arXiv, PubMed, and other academic databases. "
