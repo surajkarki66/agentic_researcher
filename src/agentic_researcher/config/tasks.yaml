@@ -40,8 +40,7 @@ research_task:
     
     ## Sources Used
     - List all papers, articles, and sources consulted
-    - Include authors, titles, publication dates, and URLs/DOIs where available
-    - Prepare sources in a format ready for APA-style citations
+    - Include authors, titles, publication dates, and URLs where available
     
     Format: Well-organized prose with clear section headers
   agent: scientific_researcher
@@ -70,14 +69,10 @@ writing_task:
     Write 2-3 sentences summarizing key takeaways and future outlook.
     
     ## References
-    List all sources cited in the document using **APA Style**:
-    - Consult the citation_styles.txt knowledge base for proper APA formatting
-    - Journal articles: Author, A. A., & Author, B. B. (Year). Title of article. Journal Name, Volume(Issue), pages. https://doi.org/xxxxx
-    - Books: Author, A. A. (Year). Title of book. Publisher.
-    - Websites: Author, A. A. (Year). Title of page. Site Name. https://www.example.com
-    - Use hanging indentation for readability
-    - Include DOIs when available (preferred over URLs)
-    - Remove any sources not cited in the text
+    List all sources cited in the document:
+    - Include papers, articles, and sources from the research
+    - Format: Author(s). (Year). Title. Source/URL
+    - Number each reference [1], [2], etc.
     
     Writing guidelines:
     - Total length: 500-650 words (1 page including references)
@@ -86,8 +81,7 @@ writing_task:
     - Maintain logical flow
     - Make it engaging yet rigorous
     - Every claim must be supported by research
-    - Add inline citations in APA format: (Author, Year) or (Author et al., Year)
-    - For direct quotes: (Author, Year, p. XX)
+    - Add inline citations like [1] or [2] in the text
     
     Write the COMPLETE document NOW in your response.
   expected_output: >
@@ -110,8 +104,6 @@ editing_task:
   description: >
     Review and refine the scientific document on: {topic} that was written in the previous task.
     
-    YOU MUST provide the complete edited document.
-    
     Your editing checklist:
     1. **Accuracy**: Verify all scientific claims are correct and properly supported
     2. **Clarity**: Ensure language is clear and accessible without oversimplification
@@ -121,17 +113,8 @@ editing_task:
     6. **Consistency**: Check for consistent terminology and formatting
     7. **Impact**: Ensure the introduction hooks the reader and conclusion is memorable
     8. **Completeness**: Verify all essential information is included
-    9. **APA Citations**: Verify all inline citations follow APA format from citation_styles.txt:
-       - Single author: (Smith, 2024)
-       - Two authors: (Smith & Johnson, 2024)
-       - Three or more: (Smith et al., 2024)
-       - Direct quotes: (Smith, 2024, p. 45)
-    10. **APA References**: Validate References section follows APA style:
-       - Correct format for each source type (journal, book, website)
-       - Includes all required elements (authors, year, title, source, DOI/URL)
-       - Proper alphabetical ordering and hanging indentation
-       - No common citation errors (missing info, incorrect formatting)
-       - All sources cited in text are listed, and vice versa
+    9. **Citations**: Ensure all claims have inline citations [1], [2] pointing to References
+    10. **References**: Verify References section is complete and properly formatted
     
     Make necessary revisions to improve quality while maintaining the writer's voice.
     If the document exceeds 1 page, condense without losing key information.
@@ -144,9 +127,8 @@ editing_task:
     - Optimal length (500-650 words, fits on 1 page)
     - Proper markdown formatting
     - Strong opening and closing
-    - **Inline citations in APA format** throughout the text (Author, Year)
-    - **Complete References section in APA format** at the end
-    - All citations verified against citation_styles.txt knowledge base
+    - Inline citations [1], [2] throughout the text
+    - Complete References section at the end
     - Scientifically accurate and engaging
     - Ready to be saved and shared
     Format: Final markdown document without code blocks (```), optimized for readability
