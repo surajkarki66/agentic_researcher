@@ -1,65 +1,214 @@
-# Scientific Research Assistant
+# Agentic Researcher
 
-A CrewAI-powered research assistant that helps you write comprehensive 1-page scientific documents on any concrete scientific topic. This multi-agent system combines the expertise of a scientific researcher, content writer, and editor to produce high-quality, evidence-based scientific summaries.
+A CrewAI-powered multi-agent system that automatically generates comprehensive 1-page scientific documents on any concrete scientific topic. This intelligent research assistant combines the expertise of specialized AI agents to produce high-quality, evidence-based scientific summaries.
 
-## Features
+## 🚀 Features
 
-- **Automated Research**: Gathers current, credible scientific information from authoritative sources
-- **Expert Writing**: Transforms complex research into clear, engaging 1-page documents
-- **Quality Assurance**: Professional editing ensures accuracy, clarity, and optimal length
-- **Interactive Mode**: Simply input any scientific topic and get a polished document
-- **Structured Output**: Well-formatted markdown documents ready to share or present
+- **Automated Research Pipeline**: Three specialized AI agents work together to research, write, and edit scientific documents
+- **Academic Literature Search**: Custom tool for searching arXiv and peer-reviewed papers
+- **Web Research Integration**: Combines academic sources with web search for comprehensive coverage
+- **Professional Editing**: Quality assurance ensures accuracy, clarity, and optimal length
+- **Interactive CLI**: Simple command-line interface for easy topic input
+- **Structured Output**: Well-formatted markdown documents ready for sharing or presentation
 
-## How It Works
+## 📋 How It Works
 
-The system uses three specialized AI agents working in sequence:
+The system employs three specialized AI agents in a sequential workflow:
 
-1. **Scientific Researcher**: Conducts comprehensive research on your topic, gathering key findings from credible sources
-2. **Scientific Writer**: Crafts a well-structured 1-page document (500-600 words) with introduction, main content, and conclusion
-3. **Editor**: Reviews and refines the document for accuracy, clarity, and optimal length
+1. **Scientific Researcher** 🔬: Conducts comprehensive research using academic databases and web sources
+2. **Scientific Writer** ✍️: Transforms research findings into clear, engaging 1-page documents
+3. **Editor** ✅: Reviews and polishes the document for publication-ready quality
 
-Welcome to the AgenticResearcher Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+## 🛠️ Installation
 
-## Installation
+### Prerequisites
+- Python 3.10 - 3.13
+- UV package manager (recommended)
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+### Setup Steps
 
-First, if you haven't already, install uv:
+1. **Install UV** (if not already installed):
+   ```bash
+   pip install uv
+   ```
 
-```bash
-pip install uv
-```
+2. **Clone and navigate to the project**:
+   ```bash
+   cd agentic_researcher
+   ```
 
-Next, navigate to your project directory and install the dependencies:
+3. **Install dependencies**:
+   ```bash
+   uv sync
+   ```
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
-
-### Environment Setup
-
-**IMPORTANT: Configure your API keys in the `.env` file**
-
-1. Copy `.env.example` to `.env`:
+4. **Configure environment variables**:
    ```bash
    cp .env.example .env
    ```
 
-2. Add your API keys to `.env`:
-   - `OPENAI_API_KEY` - Required for AI agents (get from [OpenAI](https://platform.openai.com/api-keys))
+   Edit `.env` and add your API keys:
+   ```env
+   OPENAI_API_KEY=your_openai_api_key_here
+   SERPER_API_KEY=your_serper_api_key_here
+   ```
+
+   **Required API Keys:**
+   - `OPENAI_API_KEY`: For AI agent functionality ([get from OpenAI](https://platform.openai.com/api-keys))
+   - `SERPER_API_KEY`: For web search functionality ([get free key at Serper.dev](https://serper.dev/))
+
+## 🎯 Usage
+
+### Interactive Mode (Recommended)
+```bash
+uv run crewai run
+```
+
+You'll be prompted to enter a scientific topic:
+```
+Enter a scientific topic (e.g., 'CRISPR gene editing', 'quantum entanglement', 'neuroplasticity'):
+```
+
+### Command Line Mode
+```bash
+uv run crewai run "Support Vector Machines"
+```
+
+### Examples
+```bash
+# Machine Learning
+uv run crewai run "Neural Networks and Deep Learning"
+
+# Physics
+uv run crewai run "Quantum Computing Fundamentals"
+
+# Biology
+uv run crewai run "CRISPR Gene Editing Technology"
+
+# Environmental Science
+uv run crewai run "Climate Change Mitigation Strategies"
+```
+
+## 📄 Output
+
+The system generates a comprehensive 1-page scientific document saved as `report.md` with:
+
+- **Title**: Clear, descriptive heading
+- **Introduction**: Context and significance (2-3 sentences)
+- **Main Content**: Key concepts, recent findings, mechanisms, and applications (3-4 paragraphs)
+- **Conclusion**: Summary and future outlook (2-3 sentences)
+- **References**: Properly formatted citations with inline references [1], [2], etc.
+
+Document length: 500-650 words, optimized for readability and scientific rigor.
+
+## 🏗️ Project Structure
+
+```
+agentic_researcher/
+├── src/agentic_researcher/
+│   ├── __init__.py
+│   ├── main.py              # Entry point and CLI interface
+│   ├── crew.py              # CrewAI agent and task definitions
+│   ├── config/
+│   │   ├── agents.yaml      # Agent configurations (roles, goals, backstories)
+│   │   └── tasks.yaml       # Task definitions and workflows
+│   └── tools/
+│       ├── __init__.py
+│       └── scientific_tools.py  # Custom arXiv search tool
+├── .env.example             # Environment variables template
+├── pyproject.toml           # Project dependencies and scripts
+├── README.md               # This file
+└── uv.lock                # Dependency lock file
+```
+
+## 🤖 Agent Details
+
+### 1. Scientific Researcher
+- **Expertise**: PhD-level research specialist
+- **Tools**:
+  - 🔬 **Scientific Literature Search**: Custom arXiv API integration
+  - 🌐 **Web Search**: SerperDevTool for general web research
+  - 📄 **Web Scraping**: Content extraction from websites
+- **Output**: Comprehensive research summary with findings, sources, and evidence
+
+### 2. Scientific Writer
+- **Expertise**: Accomplished science communicator
+- **Capabilities**: Transforms complex research into accessible, engaging documents
+- **Output**: Well-structured 1-page document with proper scientific formatting
+
+### 3. Editor
+- **Expertise**: Scientific editor and quality assurance specialist
+- **Capabilities**: Ensures accuracy, clarity, structure, and optimal length
+- **Output**: Publication-ready final document
+
+## 🛠️ Custom Tools
+
+### Scientific Literature Search Tool
+- **Purpose**: Searches arXiv for peer-reviewed scientific papers
+- **Coverage**: Physics, mathematics, computer science, biology, and related fields
+- **Features**:
+  - Returns titles, authors, abstracts, and publication links
+  - Focuses on credible academic sources
+  - No API key required (uses free arXiv API)
+- **Location**: `src/agentic_researcher/tools/scientific_tools.py`
+
+## ⚙️ Customization
+
+Modify the following files to customize behavior:
+
+- **`src/agentic_researcher/config/agents.yaml`**: Adjust agent roles, goals, and personalities
+- **`src/agentic_researcher/config/tasks.yaml`**: Modify task descriptions and expected outputs
+- **`src/agentic_researcher/crew.py`**: Add custom tools or modify agent logic
+- **`src/agentic_researcher/main.py`**: Change input handling or output formatting
+
+## 🔧 Development
+
+### Running Tests
+```bash
+uv run python -m pytest
+```
+
+### Training Mode
+```bash
+uv run python -m agentic_researcher.main train
+```
+
+### Replay Mode
+```bash
+uv run python -m agentic_researcher.main replay
+```
+
+## 📚 Dependencies
+
+- **crewai[tools]**: Multi-agent framework
+- **litellm**: LLM provider abstraction
+- **ollama**: Local LLM support
+- **requests**: HTTP client for API calls
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🆘 Support
+
+- **Documentation**: [CrewAI Docs](https://docs.crewai.com)
+- **GitHub Issues**: [Report bugs or request features](https://github.com/surajkarki66/agentic_researcher/issues)
+- **Discord**: [Join the CrewAI community](https://discord.com/invite/X4JWnZnxPb)
+
+---
+
+**Built with ❤️ using [CrewAI](https://crewai.com)**
    - `SERPER_API_KEY` - Required for web search functionality (get free key at [Serper.dev](https://serper.dev/))
 
 Without these API keys, the research assistant will not function properly.
-
-### Customizing
-
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/agentic_researcher/config/agents.yaml` to define your agents
-- Modify `src/agentic_researcher/config/tasks.yaml` to define your tasks
-- Modify `src/agentic_researcher/crew.py` to add your own logic, tools and specific args
-- Modify `src/agentic_researcher/main.py` to add custom inputs for your agents and tasks
 
 ## Running the Project
 
