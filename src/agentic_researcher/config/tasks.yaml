@@ -102,37 +102,28 @@ writing_task:
 
 editing_task:
   description: >
-    Review and refine the scientific document on: {topic} that was written in the previous task.
+    Review and polish the scientific document on: {topic} from the previous task.
     
-    Your editing checklist:
-    1. **Accuracy**: Verify all scientific claims are correct and properly supported
-    2. **Clarity**: Ensure language is clear and accessible without oversimplification
-    3. **Structure**: Check logical flow and proper organization
-    4. **Length**: Ensure document fits on 1 page (500-650 words including references)
-    5. **Grammar**: Fix any grammatical or stylistic issues
-    6. **Consistency**: Check for consistent terminology and formatting
-    7. **Impact**: Ensure the introduction hooks the reader and conclusion is memorable
-    8. **Completeness**: Verify all essential information is included
-    9. **Citations**: Ensure all claims have inline citations [1], [2] pointing to References
-    10. **References**: Verify References section is complete and properly formatted
+    YOU MUST OUTPUT THE COMPLETE EDITED DOCUMENT IN YOUR FINAL ANSWER.
     
-    Make necessary revisions to improve quality while maintaining the writer's voice.
-    If the document exceeds 1 page, condense without losing key information.
+    Focus on these key improvements:
+    1. Fix any grammar or spelling errors
+    2. Ensure document is 500-650 words (condense if too long)
+    3. Verify all citations [1], [2] match the References section
+    4. Improve clarity where needed
     
-    Provide the COMPLETE final document in your response.
+    Output the complete markdown document from title to references.
   expected_output: >
-    The final, publication-ready 1-page scientific document:
-    - All factual errors corrected
-    - Clear, polished prose
-    - Optimal length (500-650 words, fits on 1 page)
-    - Proper markdown formatting
-    - Strong opening and closing
-    - Inline citations [1], [2] throughout the text
-    - Complete References section at the end
-    - Scientifically accurate and engaging
-    - Ready to be saved and shared
-    Format: Final markdown document without code blocks (```), optimized for readability
-    IMPORTANT: Provide the COMPLETE edited document text in your response
+    The complete, polished scientific document in markdown format:
+    
+    # Title
+    ## Introduction
+    ## Main Content  
+    ## Conclusion
+    ## References
+    
+    CRITICAL: Output the full edited document text (500-650 words total).
+    Do not summarize - write out the entire document.
   agent: editor
   context:
     - writing_task
