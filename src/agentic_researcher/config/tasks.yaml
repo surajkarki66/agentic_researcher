@@ -104,37 +104,26 @@ editing_task:
   description: >
     Review and polish the scientific document on: {topic} from the previous task.
     
+    YOU MUST OUTPUT THE COMPLETE EDITED DOCUMENT IN YOUR FINAL ANSWER.
+    
     Focus on these key improvements:
     1. Fix any grammar or spelling errors
     2. Ensure document is 500-650 words (condense if too long)
     3. Verify all citations [1], [2] match the References section
     4. Improve clarity where needed
     
-    CRITICAL INSTRUCTION:
-    Your response must begin IMMEDIATELY with the document title starting with # symbol.
-    Do NOT include:
-    - Any thinking process or commentary
-    - Phrases like "I now can give a great answer" or "Here is the document"
-    - Preambles, explanations, or meta-commentary
-    - Anything other than the actual markdown document
-    
-    Your entire response = the complete edited document, nothing else.
+    Output the complete markdown document from title to references.
   expected_output: >
-    ONLY the complete markdown document with this exact structure:
+    The complete, polished scientific document in markdown format:
     
-    # [Title]
+    # Title
     ## Introduction
-    [2-3 sentences]
-    ## Main Content
-    [3-4 paragraphs with citations]
+    ## Main Content  
     ## Conclusion
-    [2-3 sentences]
     ## References
-    [1] Reference 1
-    [2] Reference 2
-    ...
     
-    NOTHING ELSE. No commentary. No "here is" statements. Just the document.
+    CRITICAL: Output the full edited document text (500-650 words total).
+    Do not summarize - write out the entire document.
   agent: editor
   context:
     - writing_task
